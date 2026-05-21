@@ -15,5 +15,4 @@ Route::get('/ijazah/{id}', [IjazahController::class, 'show'])->name('ijazah.show
 Route::get('/ijazah/{id}/edit', [IjazahController::class, 'edit'])->name('ijazah.edit');
 Route::put('/ijazah/{id}', [IjazahController::class, 'update'])->name('ijazah.update');
 Route::delete('/ijazah/{id}', [IjazahController::class, 'destroy'])->name('ijazah.destroy');
-Route::get('/ijazah/{id}/pdf', [IjazahController::class, 'pdf'])->name('ijazah.pdf');
 

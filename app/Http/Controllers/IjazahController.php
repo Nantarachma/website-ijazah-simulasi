@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Ijazah;
-use Barryvdh\DomPDF\Facade\Pdf;
 
 class IjazahController extends Controller
 {
@@ -112,18 +110,5 @@ class IjazahController extends Controller
 
         return redirect()->route('ijazah.index')
             ->with('success', 'Data ijazah simulasi berhasil dihapus.');
-    }
-
-    /**
-     * Download certificate in PDF format using DomPDF.
-     */
-    public function pdf(string $id)
-    {
-        $ijazah = Ijazah::findOrFail($id);
-        
-        $pdf = Pdf::loadView('ijazah.pdf', compact('ijazah'))
-            ->setPaper('a4', 'landscape');
-            
-        return $pdf->download('ijazah_simulasi_' . str_replace(' ', '_', $ijazah->nama_mahasiswa) . '.pdf');
     }
 }
